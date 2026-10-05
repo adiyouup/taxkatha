@@ -6,7 +6,12 @@ export const siteConfig = {
   descriptor: "Insights • Analysis • Summary",
   description:
     "TaxKatha distils Indian tax rulings into clear, searchable summaries — with expert insights and a professional community to discuss what each decision means.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
+  // Set NEXT_PUBLIC_SITE_URL to pin the address; on Vercel it otherwise follows the
+  // project's production domain (taxkatha.vercel.app now, taxkatha.com once added).
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
+  ).replace(/\/$/, ""),
   locale: "en_IN",
   contactEmail: "hello@taxkatha.com",
   social: {
