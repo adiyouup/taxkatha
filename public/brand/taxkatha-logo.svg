@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="300" y1="280" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E1B843"/>
+      <stop offset="0.45" stop-color="#C59B27"/>
+      <stop offset="1" stop-color="#916B10"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="300" y1="250" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A2D42"/>
+      <stop offset="1" stop-color="#0B1623"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0B1623" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- MARK -->
+  <g>
+    <!-- Refined circular seal -->
+    <circle cx="600" cy="420" r="245" stroke="url(#navy)" stroke-width="8"/>
+    <circle cx="600" cy="420" r="229" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="600" cy="420" r="217" stroke="#C59B27" stroke-width="1" opacity="0.28"/>
+
+    <!-- Balance scale: beam -->
+    <g stroke="url(#gold)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M405 382 Q600 355 795 382" stroke-width="10"/>
+      <path d="M405 382 L435 448 M405 382 L475 448 M795 382 L725 448 M795 382 L765 448" stroke-width="4"/>
+    </g>
+
+    <!-- Scale pans -->
+    <g fill="url(#gold)" stroke="url(#gold)" stroke-linejoin="round">
+      <path d="M420 448 Q455 475 490 448 Q477 478 455 482 Q433 478 420 448Z" stroke-width="2"/>
+      <path d="M710 448 Q745 475 780 448 Q767 478 745 482 Q723 478 710 448Z" stroke-width="2"/>
+      <circle cx="455" cy="448" r="6"/>
+      <circle cx="745" cy="448" r="6"/>
+    </g>
+
+    <!-- Central scale column -->
+    <g fill="url(#gold)">
+      <path d="M586 375 H614 V645 H586 Z"/>
+      <path d="M565 645 H635 L650 667 H550 Z"/>
+      <path d="M600 327 L582 362 H618 Z"/>
+      <ellipse cx="600" cy="375" rx="20" ry="7"/>
+    </g>
+
+    <!-- Quill: cleaner, more intentional silhouette -->
+    <g fill="url(#navy)">
+      <!-- Main feather -->
+      <path d="M492 650
+               C520 588 553 514 592 438
+               C625 374 670 316 735 264
+               C714 326 689 390 661 451
+               C631 516 598 574 556 624
+               C535 649 514 665 497 666
+               C489 665 487 658 492 650Z"/>
+      <!-- Inner vane gives the feather a refined layered silhouette -->
+      <path d="M500 648
+               C533 586 565 517 598 451
+               C628 390 666 333 711 292
+               C672 349 640 414 613 481
+               C586 548 555 607 520 651
+               C511 662 502 660 500 648Z" fill="#1A2D42"/>
+      <!-- Nib -->
+      <path d="M492 650 L462 688 Q458 695 466 695 L515 660 Z"/>
+    </g>
+
+    <!-- Feather cuts, restrained for small-size legibility -->
+    <g stroke="#FAFAFD" stroke-width="5" stroke-linecap="round" opacity="0.72">
+      <path d="M592 455 L628 419"/>
+      <path d="M568 510 L611 468"/>
+      <path d="M544 563 L584 525"/>
+    </g>
+
+    <!-- Small gold balance accents -->
+    <circle cx="381" cy="420" r="5" fill="url(#gold)"/>
+    <circle cx="819" cy="420" r="5" fill="url(#gold)"/>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="600" y="805"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="88"
+        font-weight="700"
+        letter-spacing="17"
+        fill="#0B1623">TAXKATHA</text>
+
+  <!-- Fine gold divider -->
+  <g stroke="url(#gold)" stroke-linecap="round">
+    <path d="M275 852 H510" stroke-width="3"/>
+    <path d="M690 852 H925" stroke-width="3"/>
+  </g>
+  <rect x="588" y="840" width="24" height="24" rx="2" transform="rotate(45 588 840)" fill="url(#gold)"/>
+
+  <!-- TAGLINE -->
+  <text x="600" y="908"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        font-weight="600"
+        letter-spacing="9"
+        fill="#C59B27">INSIGHTS • ANALYSIS • SUMMARY</text>
+</svg>

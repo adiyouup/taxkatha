@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📈 TaxKatha — Smart Tax Planning & Financial Chronicles
 
-## Getting Started
+TaxKatha is a modern, full-stack tax planning, calculation engine, and financial advisory web application built with **Node.js**, **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **⚡ Real-Time Tax Computation**: Instant calculation for both New and Old tax regimes (FY 2024–25 & FY 2025–26).
+- **⚖️ Side-by-Side Regime Comparison**: Automated recommendations highlighting the most tax-efficient regime.
+- **🛡️ Deduction Discovery**: Interactive deductions breakdown for Section 80C, 80D, HRA, and NPS.
+- **📊 Cash Flow Breakdown**: Visual monthly in-hand take-home salary and effective tax rate metrics.
+- **🔌 Full-Stack REST API**: Built-in backend route at `/api/tax` for programmatic tax calculations.
+
+---
+
+## 🛠️ Project Structure
+
+```
+taxkatha/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── tax/
+│   │   │       └── route.ts       # Backend Node.js API (POST /api/tax, GET /api/tax)
+│   │   ├── globals.css            # Tailwind CSS styling & themes
+│   │   ├── layout.tsx             # Root layout with fonts & metadata
+│   │   └── page.tsx               # Main landing & dashboard page
+│   └── components/
+│       ├── ApiTester.tsx          # Live in-browser API explorer
+│       ├── Features.tsx           # Feature showcase grid
+│       ├── Footer.tsx             # App footer & quick links
+│       ├── Navbar.tsx             # Navigation header
+│       └── TaxCalculator.tsx      # Interactive tax calculator & slider
+├── public/                        # Static assets & icons
+├── package.json                   # Dependencies & build scripts
+├── tsconfig.json                  # TypeScript configuration
+└── next.config.ts                 # Next.js configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏃 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-## Learn More
+### 2. Start the Development Server
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📡 API Reference
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### `POST /api/tax`
+Computes tax liability given gross income, regime, and deductions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Request Body
+```json
+{
+  "annualIncome": 1200000,
+  "regime": "new",
+  "deductions": 0
+}
+```
+
+#### Response Example
+```json
+{
+  "status": "success",
+  "data": {
+    "annualIncome": 1200000,
+    "taxableIncome": 1125000,
+    "baseTax": 65000,
+    "healthAndEducationCess": 2600,
+    "totalTaxPayable": 67600,
+    "effectiveTaxRate": "5.63%",
+    "regime": "new",
+    "timestamp": "2026-10-04T10:48:00.000Z"
+  }
+}
+```
