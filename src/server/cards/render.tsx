@@ -33,7 +33,7 @@ export type CardContent = {
   summary: string;
   outcome?: { side: OutcomeSide; remanded: boolean };
   chips?: string[];
-  kind: "Case law" | "Insight";
+  kind: "Case law" | "Insight" | "Calculator";
 };
 
 const NAVY = "#0A1F44";

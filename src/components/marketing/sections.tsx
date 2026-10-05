@@ -9,8 +9,10 @@ import { CaseCard } from "@/components/posts/case-card";
 import { InsightCard } from "@/components/posts/insight-card";
 import { OutcomePill } from "@/components/posts/outcome-pill";
 import { SectionChips } from "@/components/posts/section-chips";
+import { ToolIcon } from "@/components/tools/tool-icon";
 import { buttonVariants } from "@/components/ui/button";
 import { formatCompact, formatDate, formatNumber } from "@/lib/format";
+import { getTool, TOOLS } from "@/lib/tools/registry";
 import { cn } from "@/lib/utils";
 import type { DirectoryFacets, PostCard, SiteStats, Trending } from "@/server/queries/posts";
 
@@ -345,6 +347,52 @@ export function CtaSection({ className }: { className?: string }) {
           </div>
           <p className="type-caption mt-6 text-muted-foreground">Sign in with Google, LinkedIn or Microsoft. No card required.</p>
         </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/* -------------------------------- Calculators ------------------------------- */
+
+const HOME_TOOLS = ["income-tax-calculator", "sip-calculator", "home-loan-emi-calculator", "gst-calculator", "hra-calculator", "ppf-calculator"];
+
+/** The most-used calculators, as a way in for visitors who are not here for a ruling. */
+export function ToolsSection() {
+  const tools = HOME_TOOLS.map(getTool);
+  return (
+    <Section>
+      <div className="container-wide">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Free calculators"
+            title="Tax and money, worked out"
+            description="Income tax under both regimes, GST, HRA, EMIs, SIPs and savings schemes — on the current rules, with the working shown."
+            action={<TextLink href="/tools">All {TOOLS.length} calculators</TextLink>}
+          />
+        </Reveal>
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool, i) => (
+            <li key={tool.slug}>
+              <Reveal delay={0.05 * i} className="h-full">
+                <Link
+                  href={`/tools/${tool.slug}`}
+                  className="group flex h-full items-start gap-4 rounded-xl border bg-card p-5 shadow-soft transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-gold-600/60 hover:shadow-lift"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-gold-400">
+                    <ToolIcon name={tool.icon} className="size-5" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="flex items-center gap-1.5 font-display text-lg font-semibold text-foreground">
+                      {tool.name}
+                      <ArrowUpRight className="size-4 text-gold-700 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                    </span>
+                    <span className="type-small mt-1 block text-muted-foreground">{tool.summary}</span>
+                  </span>
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </Section>
   );

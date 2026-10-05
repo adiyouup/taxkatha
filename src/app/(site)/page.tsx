@@ -1,5 +1,5 @@
 import { Hero, type HeroCard } from "@/components/marketing/hero";
-import { AuthoritySection, CtaSection, FeaturedSection, InsightsSection, TopicsSection, TrendingSection } from "@/components/marketing/sections";
+import { AuthoritySection, CtaSection, FeaturedSection, InsightsSection, ToolsSection, TopicsSection, TrendingSection } from "@/components/marketing/sections";
 import { siteConfig } from "@/lib/site";
 import {
   getDirectoryFacets,
@@ -83,6 +83,7 @@ export default async function HomePage() {
       <TopicsSection facets={facets} />
       <AuthoritySection stats={stats} />
       <InsightsSection posts={insights} />
+      <ToolsSection />
       <CtaSection />
     </>
   );

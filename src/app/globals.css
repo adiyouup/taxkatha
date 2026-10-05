@@ -521,3 +521,48 @@
   pointer-events: none;
   color: var(--muted-foreground);
 }
+
+/* Calculator sliders: a gold track filled up to the value (--fill), navy thumb. */
+.tool-range {
+  appearance: none;
+  height: 1.25rem;
+  background: transparent;
+  cursor: pointer;
+}
+.tool-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-gold-500) var(--fill), var(--color-navy-100) var(--fill));
+}
+.tool-range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-gold-500) var(--fill), var(--color-navy-100) var(--fill));
+}
+.tool-range::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--color-navy-900);
+  border: 3px solid var(--color-paper);
+  box-shadow: 0 1px 4px rgb(10 31 68 / 0.35);
+  transition: transform 150ms ease;
+}
+.tool-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--color-navy-900);
+  border: 3px solid var(--color-paper);
+  box-shadow: 0 1px 4px rgb(10 31 68 / 0.35);
+}
+.tool-range:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+.tool-range:focus-visible {
+  outline: 2px solid var(--color-gold-600);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

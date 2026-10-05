@@ -22,7 +22,7 @@ export const mainNav: NavItem[] = [
   { label: "Case Laws", href: "/case-laws", description: "Search every ruling by court, section or topic" },
   { label: "Insights", href: "/insights", description: "Editorial analysis from the TaxKatha desk" },
   { label: "Topics", href: "/topics", description: "Browse rulings by subject" },
-  { label: "Tools", href: "/tools/income-tax-calculator", description: "Income-tax calculator" },
+  { label: "Tools", href: "/tools", description: "Tax, loan and investment calculators" },
   { label: "About", href: "/about", description: "Who we are and how we work" },
 ];
 
@@ -38,7 +38,13 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
   },
   {
     title: "Tools",
-    items: [{ label: "Income-tax calculator", href: "/tools/income-tax-calculator" }],
+    items: [
+      { label: "Income tax calculator", href: "/tools/income-tax-calculator" },
+      { label: "SIP calculator", href: "/tools/sip-calculator" },
+      { label: "EMI calculator", href: "/tools/emi-calculator" },
+      { label: "GST calculator", href: "/tools/gst-calculator" },
+      { label: "All calculators", href: "/tools" },
+    ],
   },
   {
     title: "Company",
